@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+
+# Build outputs
+.next
+out
+build
+dist
+
+# Tailwind / PostCSS (auto-generated)
+*.min.css
+
+# Package manager
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Auto-generated
+next-env.d.ts
+.vercel
+*.tsbuildinfo
+
+# shadcn/ui generated components (optional — remove if you want to format them)
+# src/components/ui/
+
+# Static assets
+public
