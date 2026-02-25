@@ -75,13 +75,13 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: calc(var(--radius) - 0.125rem);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  --radius-xl: calc(var(--radius) + 0.25rem);
+  --radius-2xl: calc(var(--radius) + 0.5rem);
+  --radius-3xl: calc(var(--radius) + 0.75rem);
+  --radius-4xl: calc(var(--radius) + 1rem);
 }
 
 :root {
@@ -160,15 +160,15 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-dark-06 font-serif text-[14px] leading-[1.5] text-grey-40 md:text-[16px];
+    @apply bg-dark-06 font-serif text-[.875rem] leading-[1.5] text-grey-40 md:text-[1rem];
   }
 }
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 16px;
+  padding-inline: 1rem;
 
   @variant md {
-    padding-inline: 80px;
+    padding-inline: 5rem;
   }
 }

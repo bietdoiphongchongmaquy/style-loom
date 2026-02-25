@@ -27,27 +27,37 @@ function BrandButton({
   className,
   variant = "brown",
   asChild = false,
+  icon,
+  iconPosition = "end",
   children,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof brandButtonVariants> & {
     asChild?: boolean;
+    icon?: React.ReactNode;
+    iconPosition?: "start" | "end";
   }) {
   const Comp = asChild ? Slot.Root : "button";
+  const hasIcon = Boolean(icon);
 
   return (
     <Comp
       data-slot="brand-button"
       data-variant={variant}
-      className={cn(brandButtonVariants({ variant, className }))}
+      className={cn(brandButtonVariants({ variant }), className)}
       {...props}
     >
+      {iconPosition === "start" && hasIcon && (
+        <span className="relative flex size-[1.25rem] items-center justify-center">
+          {icon}
+        </span>
+      )}
+
       <Slot.Slottable>{children}</Slot.Slottable>
 
-      {/* Icon */}
-      {variant !== "brown" && (
+      {iconPosition === "end" && hasIcon && (
         <span className="relative flex size-[1.25rem] items-center justify-center">
-          <ICLink className={cn("size-[.8594rem] text-current")} />
+          {icon}
         </span>
       )}
 
