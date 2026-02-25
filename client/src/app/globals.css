@@ -160,7 +160,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-dark-06 text-white;
+    @apply bg-dark-06 font-serif text-[14px] leading-[1.5] text-grey-40 md:text-[16px];
   }
 }
 

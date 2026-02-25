@@ -1,15 +1,14 @@
 import React from "react";
-import Link, { LinkProps } from "next/link";
 
 import { cva, type VariantProps } from "class-variance-authority";
+import { Slot } from "radix-ui";
 
 import { cn } from "@/lib/utils";
 import ICLink from "@/components/icon/ic-link";
 
-// 1. Định nghĩa các Variant bằng CVA
 const brandButtonVariants = cva(
   // transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50
-  "relative inline-flex w-fit items-center justify-center gap-[4px] rounded-[8px] px-[20px] py-[14px] text-[14px] leading-[1.5] capitalize",
+  "relative inline-flex w-fit items-center justify-center gap-[.25rem] rounded-[.5rem] px-[1.25rem] py-[.875rem] text-[.875rem] leading-[1.5] capitalize",
   {
     variants: {
       variant: {
@@ -24,73 +23,72 @@ const brandButtonVariants = cva(
   },
 );
 
-// 2. Khai báo Props (Kết hợp thẻ <a>, Next.js LinkProps và Variant)
-export interface BrandButtonProps
-  extends
-    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>,
-    LinkProps,
-    VariantProps<typeof brandButtonVariants> {}
+function BrandButton({
+  className,
+  variant = "brown",
+  asChild = false,
+  children,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof brandButtonVariants> & {
+    asChild?: boolean;
+  }) {
+  const Comp = asChild ? Slot.Root : "button";
 
-// 3. Khởi tạo Component với forwardRef
-const BrandButton = React.forwardRef<HTMLAnchorElement, BrandButtonProps>(
-  ({ className, variant, href, children, ...props }, ref) => {
-    return (
-      <Link
-        href={href}
-        ref={ref}
-        className={cn(brandButtonVariants({ variant, className }))}
-        {...props}
-      >
-        {/* NỘI DUNG CHỮ */}
-        <span className="relative z-10">{children}</span>
+  return (
+    <Comp
+      data-slot="brand-button"
+      data-variant={variant}
+      className={cn(brandButtonVariants({ variant, className }))}
+      {...props}
+    >
+      <Slot.Slottable>{children}</Slot.Slottable>
 
-        {/* ICON */}
-        {variant !== "brown" && (
-          <span className="relative z-10 flex size-[20px] items-center justify-center">
-            <ICLink className={cn("size-[13.75px] text-current")} />
-          </span>
-        )}
+      {/* Icon */}
+      {variant !== "brown" && (
+        <span className="relative flex size-[1.25rem] items-center justify-center">
+          <ICLink className={cn("size-[.8594rem] text-current")} />
+        </span>
+      )}
 
-        {/* CÁC VIỀN TRANG TRÍ RIÊNG CHO OPTION "DASHED" */}
-        {variant === "dashed" && (
-          <>
-            {/* Cạnh trên */}
-            <div className="pointer-events-none absolute top-0 right-[16.5px] left-[16.5px] flex h-px gap-[6px] px-[4px]">
-              <div className="h-full w-full bg-dark-25"></div>
-              <div className="h-full w-full bg-dark-25"></div>
-              <div className="h-full w-full bg-dark-25"></div>
-              <div className="h-full w-full bg-dark-25"></div>
-            </div>
+      {/* Border */}
+      {variant === "dashed" && (
+        <>
+          {/* Top border */}
+          <div className="pointer-events-none absolute top-0 right-[1.0313rem] left-[1.0313rem] flex h-px gap-[.375rem] px-[.25rem]">
+            <div className="h-full w-full bg-dark-25"></div>
+            <div className="h-full w-full bg-dark-25"></div>
+            <div className="h-full w-full bg-dark-25"></div>
+            <div className="h-full w-full bg-dark-25"></div>
+          </div>
 
-            {/* Cạnh dưới */}
-            <div className="pointer-events-none absolute right-[16.5px] bottom-0 left-[16.5px] flex h-px gap-[6px] px-[4px]">
-              <div className="h-full w-full bg-dark-25"></div>
-              <div className="h-full w-full bg-dark-25"></div>
-              <div className="h-full w-full bg-dark-25"></div>
-              <div className="h-full w-full bg-dark-25"></div>
-            </div>
+          {/* Bottom border */}
+          <div className="pointer-events-none absolute right-[1.0313rem] bottom-0 left-[1.0313rem] flex h-px gap-[.375rem] px-[.25rem]">
+            <div className="h-full w-full bg-dark-25"></div>
+            <div className="h-full w-full bg-dark-25"></div>
+            <div className="h-full w-full bg-dark-25"></div>
+            <div className="h-full w-full bg-dark-25"></div>
+          </div>
 
-            {/* Cạnh trái */}
-            <div className="pointer-events-none absolute top-[16.5px] bottom-[16.5px] left-0 flex w-px py-[4px]">
-              <div className="h-full w-full bg-dark-25"></div>
-            </div>
+          {/* Left border */}
+          <div className="pointer-events-none absolute top-[1.0313rem] bottom-[1.0313rem] left-0 flex w-px py-[.25rem]">
+            <div className="h-full w-full bg-dark-25"></div>
+          </div>
 
-            {/* Cạnh phải */}
-            <div className="pointer-events-none absolute top-[16.5px] right-0 bottom-[16.5px] flex w-px py-[4px]">
-              <div className="h-full w-full bg-dark-25"></div>
-            </div>
+          {/* Right border */}
+          <div className="pointer-events-none absolute top-[1.0313rem] right-0 bottom-[1.0313rem] flex w-px py-[.25rem]">
+            <div className="h-full w-full bg-dark-25"></div>
+          </div>
 
-            {/* 4 Góc viền */}
-            <div className="pointer-events-none absolute top-0 left-0 size-[16.5px] rounded-tl-[8px] border-t border-l border-brown-60"></div>
-            <div className="pointer-events-none absolute top-0 right-0 size-[16.5px] rounded-tr-[8px] border-t border-r border-brown-60"></div>
-            <div className="pointer-events-none absolute bottom-0 left-0 size-[16.5px] rounded-bl-[8px] border-b border-l border-brown-60"></div>
-            <div className="pointer-events-none absolute right-0 bottom-0 size-[16.5px] rounded-br-[8px] border-r border-b border-brown-60"></div>
-          </>
-        )}
-      </Link>
-    );
-  },
-);
-BrandButton.displayName = "BrandButton";
+          {/* 4 Corners */}
+          <div className="pointer-events-none absolute top-0 left-0 size-[1.0313rem] rounded-tl-[.5rem] border-t border-l border-brown-60"></div>
+          <div className="pointer-events-none absolute top-0 right-0 size-[1.0313rem] rounded-tr-[.5rem] border-t border-r border-brown-60"></div>
+          <div className="pointer-events-none absolute bottom-0 left-0 size-[1.0313rem] rounded-bl-[.5rem] border-b border-l border-brown-60"></div>
+          <div className="pointer-events-none absolute right-0 bottom-0 size-[1.0313rem] rounded-br-[.5rem] border-r border-b border-brown-60"></div>
+        </>
+      )}
+    </Comp>
+  );
+}
 
 export { BrandButton, brandButtonVariants };

@@ -6,12 +6,7 @@ const MainPage = () => {
   return (
     <div>
       MainPage
-      <BrandButton
-        href="#"
-        variant="dashed"
-      >
-        shop now
-      </BrandButton>
+      <BrandButton variant="dark">shop now</BrandButton>
     </div>
   );
 };
