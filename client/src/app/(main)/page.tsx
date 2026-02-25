@@ -15,7 +15,7 @@ const MainPage = () => {
       >
         shop now
       </BrandButton>
-      <BrandIcon variant="brown">
+      <BrandIcon variant="dashed">
         <ICLink className="size-[21px] text-current" />
       </BrandIcon>
     </div>
