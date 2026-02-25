@@ -1,19 +1,23 @@
 import React from "react";
 
-import ICLink from "@/components/icon/ic-link";
+import ICLink from "@/components/icons/ic-link";
 import { BrandButton } from "@/components/shared/brand/button";
+import { BrandIcon } from "@/components/shared/brand/icon";
 
 const MainPage = () => {
   return (
     <div>
       MainPage
       <BrandButton
-        variant="dark"
+        variant="dashed"
         iconPosition="end"
         icon={<ICLink className="size-[.8594rem] text-current" />}
       >
         shop now
       </BrandButton>
+      <BrandIcon variant="brown">
+        <ICLink className="size-[21px] text-current" />
+      </BrandIcon>
     </div>
   );
 };
