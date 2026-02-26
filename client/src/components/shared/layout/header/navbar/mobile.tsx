@@ -38,14 +38,14 @@ const MobileNavbar = () => {
 
       <Drawer direction="bottom">
         <DrawerTrigger asChild>
-          <button className="flex items-center justify-center rounded-[.625rem] bg-brown-70 p-[.875rem]">
-            <span className="flex size-[1.75rem] shrink-0 items-center justify-center">
-              <ICMenu className="size-[1.3125rem] text-dark-10" />
+          <button className="flex items-center justify-center rounded-[10px] bg-brown-70 p-[14px]">
+            <span className="flex size-[28px] shrink-0 items-center justify-center">
+              <ICMenu className="size-[21px] text-dark-10" />
             </span>
           </button>
         </DrawerTrigger>
 
-        <DrawerContent className="bg-dark rounded-none! border-0! py-[1rem]">
+        <DrawerContent className="bg-dark rounded-none! border-0! py-[30px]">
           <DashedLine
             color="var(--color-dark-15)"
             className="top-0 right-0 left-0"
@@ -55,7 +55,7 @@ const MobileNavbar = () => {
             <DrawerTitle>Mobile Menu</DrawerTitle>
           </DrawerHeader>
 
-          <nav className="container flex w-full flex-col gap-[.625rem]">
+          <nav className="container flex w-full flex-col gap-[10px]">
             {mainNavigation.map((item) => {
               const isActive = pathname === item.href;
 
@@ -64,7 +64,7 @@ const MobileNavbar = () => {
                   key={item.id}
                   href={item.href}
                   className={cn(
-                    "flex w-full items-center justify-center rounded-[.5rem] px-[1.5rem] py-[.875rem] font-mono text-[.875rem] leading-[1.5]",
+                    "flex w-full items-center justify-center rounded-[8px] px-[24px] py-[14px] font-mono text-[14px] leading-[1.5]",
                     isActive
                       ? "bg-dark-10 text-white"
                       : "border border-dashed border-dark-15 text-grey-70",

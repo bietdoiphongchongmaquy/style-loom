@@ -1,5 +1,3 @@
-import React from "react";
-
 import { DashedLine } from "@/components/shared/brand/dashed-line";
 
 import DesktopNavbar from "./navbar/desktop";
