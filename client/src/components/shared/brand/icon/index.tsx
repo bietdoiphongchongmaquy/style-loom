@@ -11,7 +11,7 @@ const brandIconVariants = cva(
       variant: {
         dark: "size-[3rem] rounded-[.5rem] bg-dark-10 p-[.875rem]",
         brown:
-          "size-[3rem] rounded-[.5rem] bg-brown-80 p-[.75rem] md:size-[3.5rem] md:p-[.875rem]",
+          "size-[3rem] rounded-[.5rem] bg-brown-80 p-[.75rem] text-dark-06 md:size-[3.5rem] md:p-[.875rem]",
         dashed: "size-[4.75rem] bg-transparent p-[.625rem]",
       },
     },
