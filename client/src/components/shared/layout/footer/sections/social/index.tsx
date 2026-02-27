@@ -1,18 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { DashedLine } from "@/components/shared/brand/dashed-line";
 import { BrandIcon } from "@/components/shared/brand/icon";
 import { mainSocials } from "@/data/mocks/socials/socials.data";
 
 const FooterSocialSection = () => {
   return (
-    <div className="relative w-full">
-      <DashedLine
-        color="var(--color-dark-15)"
-        className="top-0 right-0 left-0"
-      />
-
+    <div className="relative w-full border-t border-dark-15">
       <div className="container flex w-full flex-col items-start gap-[1.875rem] py-[3.125rem] md:flex-row md:items-center md:justify-between md:py-[5rem]">
         <div className="pointer-events-none flex items-center justify-center">
           <Image

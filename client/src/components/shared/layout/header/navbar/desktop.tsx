@@ -27,7 +27,7 @@ const DesktopNavbar = () => {
                 "flex w-full items-center justify-center rounded-[.5rem] px-[1.5rem] py-[.875rem] font-mono text-[.875rem] leading-[1.5]",
                 isActive
                   ? "bg-dark-10 text-white"
-                  : "border border-dashed border-dark-15 text-grey-70",
+                  : "border border-dark-15 text-grey-70",
               )}
             >
               {item.label}

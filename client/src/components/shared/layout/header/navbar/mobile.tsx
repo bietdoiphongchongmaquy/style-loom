@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/drawer";
 import ICMenu from "@/components/icons/ic-menu";
 import { BrandButton } from "@/components/shared/brand/button";
-import { DashedLine } from "@/components/shared/brand/dashed-line";
 import { mainNavigation } from "@/data/mocks";
 
 const MobileNavbar = () => {
@@ -45,12 +44,7 @@ const MobileNavbar = () => {
           </button>
         </DrawerTrigger>
 
-        <DrawerContent className="bg-dark rounded-none! border-0! py-[30px]">
-          <DashedLine
-            color="var(--color-dark-15)"
-            className="top-0 right-0 left-0"
-          />
-
+        <DrawerContent className="rounded-none! border-t border-dark-15 bg-dark-06 py-[30px]">
           <DrawerHeader className="sr-only">
             <DrawerTitle>Mobile Menu</DrawerTitle>
           </DrawerHeader>
@@ -67,7 +61,7 @@ const MobileNavbar = () => {
                     "flex w-full items-center justify-center rounded-[8px] px-[24px] py-[14px] font-mono text-[14px] leading-[1.5]",
                     isActive
                       ? "bg-dark-10 text-white"
-                      : "border border-dashed border-dark-15 text-grey-70",
+                      : "border border-dark-15 text-grey-70",
                   )}
                 >
                   {item.label}

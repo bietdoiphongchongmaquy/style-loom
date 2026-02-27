@@ -1,6 +1,5 @@
 import { Marquee } from "@/components/ui/marquee";
 import ICSeparator from "@/components/icons/ic-separator";
-import { DashedLine } from "@/components/shared/brand/dashed-line";
 
 const PRODUCTS_NAME = [
   "Henley Shirt",
@@ -16,11 +15,7 @@ const PRODUCTS_NAME = [
 
 const FooterMarqueeSection = () => {
   return (
-    <div className="relative w-full">
-      <DashedLine
-        color="var(--color-dark-15)"
-        className="top-0 right-0 left-0"
-      />
+    <div className="relative w-full border-t border-dark-15">
       <div className="w-full py-[1.875rem] md:py-[2.5rem]">
         <Marquee className="flex items-center gap-[.75rem]">
           {PRODUCTS_NAME.map((item) => (

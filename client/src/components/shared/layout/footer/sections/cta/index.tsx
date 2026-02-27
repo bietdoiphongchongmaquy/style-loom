@@ -2,16 +2,11 @@ import { Fragment } from "react";
 import Link from "next/link";
 
 import ICArrow from "@/components/icons/ic-arrow";
-import { DashedLine } from "@/components/shared/brand/dashed-line";
 import { mainNavigation } from "@/data/mocks";
 
 const FooterCTASection = () => {
   return (
-    <div className="relative w-full">
-      <DashedLine
-        color="var(--color-dark-15)"
-        className="top-0 right-0 left-0"
-      />
+    <div className="relative w-full border-t border-dark-15">
       <div className="container flex w-full flex-col gap-[1.875rem] py-[2.5rem] md:flex-row md:items-center md:justify-between md:gap-[3.125rem] md:py-[3.75rem]">
         <nav className="flex w-full flex-col gap-[1.875rem] md:flex-row md:items-center md:gap-[3.125rem]">
           {mainNavigation.map((item) => {
