@@ -4,9 +4,12 @@ import ICLink from "@/components/icons/ic-link";
 import { BrandButton } from "@/components/shared/brand/button";
 import { BrandIcon } from "@/components/shared/brand/icon";
 
+import HeroSection from "./_sections/hero";
+
 const MainPage = () => {
   return (
-    <div>
+    <>
+      <HeroSection />
       MainPage
       <BrandButton
         variant="dashed"
@@ -18,7 +21,7 @@ const MainPage = () => {
       <BrandIcon variant="dashed">
         <ICLink className="size-[21px] text-current" />
       </BrandIcon>
-    </div>
+    </>
   );
 };
 
